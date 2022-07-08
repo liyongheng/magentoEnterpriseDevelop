@@ -1,0 +1,30 @@
+<?php
+/** \ExampleCorp\Learning\Block\Widget\Test $block */
+$bannerImg = $this->getViewFileUrl('Lyh_Banner::images/banners/banner.png');
+?>
+<style>
+#banner-img{
+    width:100%;
+    height:300px;
+}
+</style>
+<div class="banner-container">
+    <h3>手机主题模板.</h3>
+    <img id='banner-img' src="<?=$bannerImg?>">
+
+    <div>
+        <button id='btn'>点击事件</button>
+    </div>
+
+</div>
+
+<script>
+require([
+        'jquery',
+        'banner' //引入banner.js
+], function($,banner) {
+    $("#btn").click(function(){
+        alert('按钮点击事件被触发了');
+    })
+})
+</script>

@@ -1,0 +1,67 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();  
+$request = $objectManager->get('Magento\Framework\App\Request\Http');  
+$redirect = $request->getParam('url') ?? '';
+
+if(!$redirect){
+    exit('param error');
+}
+$redirect = base64_decode($redirect);
+?>
+<style>
+    .page-bottom{
+        display:none;
+    }
+    header{ 
+        display: none !important;
+    }
+    header .header-actions .minicart-wrapper{
+        display: none;
+    }
+    .loading-wrap{
+        margin-top: 100px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .loading-wrap img{
+        width: 50px;
+    }
+    .loading-txt{
+        margin-left: 15px;
+        font-size: 20px;
+        line-height: 1.2;
+    }
+    .loading-txt02{
+        font-size: 14px;
+        color: #666;
+    }
+</style>
+
+
+<div class="loading-wrap">
+    <img src="<?= $block->getUrl() ?>pub/errors/default/images/loading.gif">
+    <div class="loading-txt">正在登录</span></div>
+</div>
+
+<script>
+require([
+        "jquery",
+        "underscore",
+        "Magento_Customer/js/customer-data"
+    ], function($, _, customer){
+
+        var customStorage = $.localStorage.get('mage-cache-storage');
+
+        if( _.isEmpty(customStorage) || _.isEmpty(customStorage.customer)  || _.isEmpty(customStorage.customer.fullname) ){
+
+            customer.reload();
+            $("body").ajaxComplete(function(event,request, settings){
+                 location.href="<?=$redirect?>";
+            });
+        }else{
+             location.href="<?=$redirect?>";
+        }
+    });
+</script>

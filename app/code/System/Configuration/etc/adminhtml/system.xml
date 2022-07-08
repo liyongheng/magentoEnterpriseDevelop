@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+
+        <tab id="extend_config" translate="label" sortOrder="999999">
+            <label>扩展配置</label>
+        </tab>
+
+        <section id="extend_config_general" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+
+            <class>separator-top</class>
+            <label>促销</label>
+            <tab>extend_config</tab>
+            <resource>System_Configuration::system_configuration</resource>
+
+            <group id="timesale" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <attribute type="expanded">1</attribute>
+                <label>促销日期设置</label>
+                <field id="timesale_start_date" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>促销开始日期</label>
+                    <comment>如: 11.11</comment>
+                </field>
+                <field id="timesale_start_time" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>促销开始时间</label>
+                    <comment>如: 00:00</comment>
+                </field>
+                <field id="timesale_end_date" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>促销结束日期</label>
+                    <comment>如: 12.22</comment>
+                </field>
+                <field id="timesale_end_time" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>促销结束时间</label>
+                    <comment>如: 23:59</comment>
+                </field>
+            </group>
+            
+        </section>
+    </system>
+</config>

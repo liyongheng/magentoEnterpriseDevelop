@@ -1,0 +1,11 @@
+.dropdown_list {
+    border: 1px solid black;
+    width: 200px;
+    height: 30px;
+}
+
+.form_left {
+    width: 300px;
+    float: left;
+    margin-right: 30px;
+}
